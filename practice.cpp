@@ -55,7 +55,109 @@ void rowsum(vector<vector<int>>arr){
     cout<<"Row Sum : "<<sum<<endl;
 
 }
+void transpose(vector<vector<int>>&arr){
+      int n=arr.size();
+    int m=arr[0].size();
 
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<m;j++){
+            swap(arr[i][j],arr[j][i]);
+
+        }
+    }
+}
+
+void rotateby90Anti(vector<vector<int>>& mat) {
+       int n=mat.size();
+       for(int i=0;i<n;i++){
+           for(int j=i+1;j<n;j++){
+               swap(mat[i][j],mat[j][i]);
+
+           }
+       }
+
+
+       for(int i=0;i<n;i++){
+           int start=0,end=n-1;
+           while(start<end)
+           {
+               swap(mat[start][i],mat[end][i]);
+               start++;
+               end--;
+
+           }
+
+       }
+    }
+
+        void rotateMatrix180Counterclockwise(vector<vector<int>>& mat) {
+        int n=mat.size();
+        for(int i=0;i<n;i++){
+            int start=0,end=n-1;
+            while(start<end){
+                swap(mat[i][start],mat[i][end]);
+                start++;
+                end--;
+
+            }
+
+        }
+        for(int i=0;i<n;i++){
+            int start=0,end=n-1;
+            while(start<end){
+                swap(mat[start][i],mat[end][i]);
+                start++;
+                end--;
+
+            }
+
+        }
+
+
+    }
+
+
+    void rotate90clockwise(vector<vector<int> >& mat) {
+    int n=mat.size();
+    for(int i=0;i<n;i++){
+        int start=0,end=n-1;
+        while(start<end){
+            swap(mat[start][i],mat[end][i]);
+            start++;
+            end--;
+
+        }
+    }
+
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            swap(mat[i][j],mat[j][i]);
+
+        }
+    }
+}
+
+
+
+    void rotateByktimes(vector<vector<int> >& mat) {
+    int n=mat.size();
+    for(int i=0;i<n;i++){
+        int start=0,end=n-1;
+        while(start<end){
+            swap(mat[start][i],mat[end][i]);
+            start++;
+            end--;
+
+        }
+    }
+
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            swap(mat[i][j],mat[j][i]);
+
+        }
+    }
+}
 int main(){
     vector<vector<int>> vec = {
         {1, 2, 3},
@@ -64,11 +166,19 @@ int main(){
     };
     // RowReverse(vec);
     // colReverse(vec);
-    rowsum(vec);
+    // rowsum(vec);
+    int k=9;
+    k=k%4;
+    while(k){
+        rotateByktimes(vec);
+        k--;
+
+    }
+
+    // transpose(vec);
+
 
     rowWise(vec);
-
-
 
 
 }
